@@ -4,6 +4,8 @@
 Esta API fornece endpoints para gerenciar produtos e categorias.
 Finalidade: Ministrado no curso de Conceitos de HTTP e Webservices ministrado por Pierri Alexander Vidmar em 03/2024 para a Magazord Digital Commerce
 
+Gist com script: https://gist.github.com/pierrialexandervidmar/ee6af63a7d9ffd3766c44dc8ee8d88b6
+
 ## Recursos
 
 - [Listar Categorias](#listar-categorias)
@@ -118,5 +120,5 @@ DELETE /api/products/{id}
 
 Exclui um produto existente.
 
-Autor
+### Autor
 Pierri Alexander Vidmar
