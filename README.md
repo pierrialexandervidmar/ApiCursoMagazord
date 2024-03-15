@@ -17,10 +17,14 @@ Finalidade: Ministrado no curso de Conceitos de HTTP e Webservices ministrado po
 - [Atualizar Produto](#atualizar-produto)
 - [Excluir Produto](#excluir-produto)
 
+
+
 ### Listar Categorias
 GET /api/categories
 
 Retorna uma lista de todas as categorias.
+
+
 
 ### Criar Categoria
 POST /api/categories
@@ -35,18 +39,33 @@ Payload da requisição:
 }
 ```
 
-### Detalhes das Categorias
-GET /api/categories/{id}
 
+
+### Detalhes da Categoria
+GET /api/categories/{id}
 Retorna os detalhes de uma categoria específica.
+
+
 
 ### Atualizar Categoria
 PUT /api/categories/{id}
-
 Atualiza uma categoria existente.
 
 Payload da requisição:
 
+```json
+{
+    "name": "Novo Nome da Categoria"
+}
+```
+
+
+
+### Atualizar Categoria
+PUT /api/categories/{id}
+Atualiza uma categoria existente.
+
+Payload da requisição:
 ```json
 {
     "name": "Novo Nome da Categoria"
