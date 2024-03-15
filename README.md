@@ -2,7 +2,7 @@
 
 ## Descrição
 Esta API fornece endpoints para gerenciar produtos e categorias.
-Finalidade: Ministrado no curso de Conceitos de HTTP e Webservices ministrado por Pierri Alexander Vidmar em 03/2024
+Finalidade: Ministrado no curso de Conceitos de HTTP e Webservices ministrado por Pierri Alexander Vidmar em 03/2024 para a Magazord Digital Commerce
 
 ## Recursos
 
