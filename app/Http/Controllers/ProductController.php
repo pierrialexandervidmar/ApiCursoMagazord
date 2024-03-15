@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -13,12 +14,6 @@ class ProductController extends Controller
         return response()->json(['products' => $products], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $request->validate([
@@ -47,56 +42,53 @@ class ProductController extends Controller
         return response()->json($responseData, 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function show($id)
     {
-        $product = Product::with('category')->findOrFail($id);
-        return response()->json(['product' => $product], 200);
+        try {
+            $product = Product::with('category')->findOrFail($id);
+            return response()->json(['product' => $product], 200);
+        }
+        catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Produto não encontrado'], 404);
+        }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
-        $product = Product::findOrFail($id);
+        try {
+            $product = Product::findOrFail($id);
 
-        $request->validate([
-            'name' => 'required',
-            'description' => 'nullable',
-            'price' => 'required|numeric|min:0',
-            'category_id' => 'required|exists:categories,id',
-        ]);
+            $request->validate([
+                'name' => 'required',
+                'description' => 'nullable',
+                'price' => 'required|numeric|min:0',
+                'category_id' => 'required|exists:categories,id',
+            ]);
 
-        $product->update([
-            'name' => $request->name,
-            'description' => $request->description,
-            'price' => $request->price,
-            'category_id' => $request->category_id,
-        ]);
+            $product->update([
+                'name' => $request->name,
+                'description' => $request->description,
+                'price' => $request->price,
+                'category_id' => $request->category_id,
+            ]);
 
-        return response()->json(['product' => $product], 200);
+            return response()->json(['product' => $product], 200);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Produto não encontrado'], 404);
+        }
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
-        $product = Product::findOrFail($id);
-        $product->delete();
-        return response()->json(null, 204);
+        try {
+            $product = Product::findOrFail($id);
+            $product->delete();
+            return response()->json(null, 204);
+        } catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Produto não encontrado'], 404);
+        }
     }
 }

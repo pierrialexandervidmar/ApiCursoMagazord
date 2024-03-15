@@ -14,12 +14,7 @@ class CategoryController extends Controller
         return response()->json(['categories' => $categories], 200);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         $request->validate([
@@ -33,12 +28,6 @@ class CategoryController extends Controller
         return response()->json(['category' => $category], 201);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         try {
@@ -50,13 +39,6 @@ class CategoryController extends Controller
         }
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
@@ -72,12 +54,7 @@ class CategoryController extends Controller
         return response()->json(['category' => $category], 200);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy($id)
     {
         $category = Category::findOrFail($id);
