@@ -41,24 +41,34 @@ class CategoryController extends Controller
 
     public function update(Request $request, $id)
     {
-        $category = Category::findOrFail($id);
+        try {
+            $category = Category::findOrFail($id);
 
-        $request->validate([
-            'name' => 'required|unique:categories,name,'.$category->id,
-        ]);
+            $request->validate([
+                'name' => 'required|unique:categories,name,'.$category->id,
+            ]);
 
-        $category->update([
-            'name' => $request->name,
-        ]);
+            $category->update([
+                'name' => $request->name,
+            ]);
 
-        return response()->json(['category' => $category], 200);
+            return response()->json(['category' => $category], 200);
+        }
+        catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Categoria não encontrada'], 404);
+        }
     }
 
 
     public function destroy($id)
     {
-        $category = Category::findOrFail($id);
-        $category->delete();
-        return response()->json(null, 204);
+        try {
+            $category = Category::findOrFail($id);
+            $category->delete();
+            return response()->json(null, 204);
+        }
+        catch (ModelNotFoundException $e) {
+            return response()->json(['message' => 'Categoria não encontrada'], 404);
+        }
     }
 }
