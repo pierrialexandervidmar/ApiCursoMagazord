@@ -33,6 +33,27 @@ Payload da requisição:
 {
     "name": "Nome da Categoria"
 }
+```
+
+### Detalhes das Categorias
+GET /api/categories/{id}
+
+Retorna os detalhes de uma categoria específica.
+
+### Atualizar Categoria
+PUT /api/categories/{id}
+
+Atualiza uma categoria existente.
+
+Payload da requisição:
+
+```json
+{
+    "name": "Novo Nome da Categoria"
+}
+```
+
+
 
 
 
