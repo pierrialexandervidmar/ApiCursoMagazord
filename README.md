@@ -43,12 +43,14 @@ Payload da requisição:
 
 ### Detalhes da Categoria
 GET /api/categories/{id}
+
 Retorna os detalhes de uma categoria específica.
 
 
 
 ### Atualizar Categoria
 PUT /api/categories/{id}
+
 Atualiza uma categoria existente.
 
 Payload da requisição:
@@ -63,6 +65,7 @@ Payload da requisição:
 
 ### Atualizar Categoria
 PUT /api/categories/{id}
+
 Atualiza uma categoria existente.
 
 Payload da requisição:
