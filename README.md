@@ -1,4 +1,4 @@
-# API de Produtos e Categorias (Curso Magaozord)
+# API de Produtos e Categorias (Curso Magazord)
 
 ## Descrição
 Esta API fornece endpoints para gerenciar produtos e categorias.
