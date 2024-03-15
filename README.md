@@ -75,6 +75,48 @@ GET /api/products
 Retorna uma lista de todos os produtos com detalhes de categoria.
 
 
+### Criar Produto
+POST /api/products
+
+Cria um novo produto.
+
+Payload da requisição:
+
+```
+{
+    "name": "Nome do Produto",
+    "description": "Descrição do Produto",
+    "price": 99.99,
+    "category_id": 1
+}
+```
+
+### Detalhes do Produto
+GET /api/products/{id}
+
+Retorna os detalhes de um produto específico.
 
 
+### Atualizar Produto
+PUT /api/products/{id}
 
+Atualiza um produto existente.
+
+Payload da requisição:
+
+```
+{
+    "name": "Novo Nome do Produto",
+    "description": "Nova Descrição do Produto",
+    "price": 129.99,
+    "category_id": 2
+}
+```
+
+### Excluir Produto
+DELETE /api/products/{id}
+
+Exclui um produto existente.
+
+Autor
+Pierri Alexander Vidmar
