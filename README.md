@@ -82,7 +82,7 @@ Cria um novo produto.
 
 Payload da requisição:
 
-```
+```json
 {
     "name": "Nome do Produto",
     "description": "Descrição do Produto",
@@ -104,7 +104,7 @@ Atualiza um produto existente.
 
 Payload da requisição:
 
-```
+```json
 {
     "name": "Novo Nome do Produto",
     "description": "Nova Descrição do Produto",
