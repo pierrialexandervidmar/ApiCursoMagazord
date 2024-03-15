@@ -62,18 +62,17 @@ Payload da requisição:
 ```
 
 
+### Excluir Categoria
+DELETE /api/categories/{id}
 
-### Atualizar Categoria
-PUT /api/categories/{id}
+Exclui uma categoria existente.
 
-Atualiza uma categoria existente.
 
-Payload da requisição:
-```json
-{
-    "name": "Novo Nome da Categoria"
-}
-```
+
+### Listar Produtos
+GET /api/products
+
+Retorna uma lista de todos os produtos com detalhes de categoria.
 
 
 
